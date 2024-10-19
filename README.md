@@ -15,7 +15,7 @@ spec:
   params:
     - name: greeting
       type: string
-      default: "Hello, Tekton!"  # Default value
+      default: "Hello, Tekton!"  
   steps:
     - name: echo
       image: ubuntu
@@ -37,14 +37,14 @@ spec:
   params:
     - name: greeting
       type: string
-      default: "Hello, Tekton!"  # Default value
+      default: "Hello, Tekton!"  
   tasks:
     - name: echo-task
       taskRef:
         name: echo-task
       params:
         - name: greeting
-          value: "$(params.greeting)"  # Pass the parameter to the task
+          value: "$(params.greeting)"  
 
 
 ```
@@ -84,7 +84,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'mvn clean install'  // Example for a Maven project
+                sh 'mvn clean install'  
             }
         }
         stage('Test') {
