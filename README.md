@@ -1,6 +1,8 @@
 # tekton-demo
 This is for the tekton demo -Docker Bangalore
 
+Task.yaml
+
 ````
 apiVersion: tekton.dev/v1beta1
 kind: Task
@@ -21,6 +23,7 @@ spec:
 
 ```
 
+Pipeline.yaml
 
 ```
 apiVersion: tekton.dev/v1beta1
@@ -42,7 +45,7 @@ spec:
 
 
 ```
-
+Pipelinerun.yaml
 
 ```
 
