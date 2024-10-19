@@ -1,6 +1,9 @@
 # tekton-demo
 This is for the tekton demo -Docker Bangalore
 
+
+kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
+
 Task.yaml
 
 ````
