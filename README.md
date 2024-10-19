@@ -2,7 +2,6 @@
 This is for the tekton demo -Docker Bangalore
 
 ````
-task.yaml
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -21,3 +20,53 @@ spec:
 
 
 ```
+
+
+```
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: hello-pipeline
+spec:
+  params:
+    - name: greeting
+      type: string
+      default: "Hello, Tekton!"  # Default value
+  tasks:
+    - name: echo-task
+      taskRef:
+        name: echo-task
+      params:
+        - name: greeting
+          value: "$(params.greeting)"  # Pass the parameter to the task
+
+
+```
+
+
+```
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: hello-pipelinerun
+spec:
+  pipelineRef:
+    name: hello-pipeline
+  params:
+    - name: greeting
+      value: "Greetings from Tekton!"
+
+
+
+```
+
+
+
+```
+
+tkn pipelinerun logs hello-pipelinerun
+
+
+```
+
